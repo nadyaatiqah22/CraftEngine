@@ -1,0 +1,604 @@
+
+/* ========================================
+   FONT
+======================================== */
+@font-face {
+    font-family: 'Minecraft';
+    src: url('fonts/minecraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --stone: #8b8b8b;
+    --dark: #1e1e1e;
+    --panel: rgba(20, 20, 20, 0.82);
+    --grass: #5d9c3b;
+    --grass2: #3f7a24;
+    --gold: #ffaa00;
+
+    --font-title: 'Minecraft', monospace;
+    --font-body: 'Courier New', monospace;
+}
+
+/* ========================================
+   RESET & BODY
+======================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: #eee;
+    font-size: 15px;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+
+    background:
+        #111
+        url('img/minecraft-alien.jpg')
+        center / cover fixed no-repeat;
+
+    image-rendering: pixelated;
+}
+
+a {
+    color: #55ffff;
+}
+
+mark {
+    background: var(--gold);
+    color: #000;
+    padding: 0 2px;
+}
+
+/* ========================================
+   NAVIGATION
+======================================== */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background: #2b2b2b;
+    border-bottom: 4px solid #000;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.brand {
+    font-family: var(--font-title);
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px #3f2a00;
+}
+
+.nav nav a {
+    font-family: var(--font-body);
+    color: #ddd;
+    text-decoration: none;
+    padding: 6px 14px;
+    margin-left: 6px;
+    border: 3px solid #000;
+    background: #6b6b6b;
+    box-shadow:
+        inset -3px -3px #3c3c3c,
+        inset 3px 3px #a0a0a0;
+}
+
+.nav nav a.on,
+.nav nav a:hover {
+    background: var(--grass);
+    box-shadow:
+        inset -3px -3px var(--grass2),
+        inset 3px 3px #8fd16a;
+}
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+main {
+    max-width: 1100px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+.panel {
+    background: var(--panel);
+    border: 4px solid #000;
+    box-shadow:
+        inset 3px 3px #555,
+        inset -3px -3px #111;
+    padding: 20px 22px;
+    margin-bottom: 18px;
+}
+
+/* ========================================
+   TITLES: MINECRAFT FONT
+======================================== */
+h1,
+h2,
+h3,
+h4,
+.brand,
+.panel-title,
+.card-title {
+    font-family: var(--font-title);
+    font-weight: normal;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    overflow-wrap: anywhere;
+}
+
+.hero {
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: clamp(22px, 4vw, 38px);
+    margin: 8px 0 12px;
+    color: #fff;
+    text-shadow: 3px 3px #333;
+    letter-spacing: 2px;
+}
+
+.sub {
+    color: var(--gold);
+    margin-top: 0;
+    font-family: var(--font-body);
+    font-size: 14px;
+}
+
+h2 {
+    margin-top: 0;
+    color: var(--gold);
+    font-size: 19px;
+}
+
+h3 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: 15px;
+}
+
+h3 small {
+    color: #999;
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+/* ========================================
+   BODY TEXT: MONOSPACE
+======================================== */
+p,
+li,
+label,
+small,
+.hint,
+.sub,
+input,
+select,
+textarea,
+button,
+.btn,
+table,
+pre,
+code,
+summary,
+footer {
+    font-family: var(--font-body);
+}
+
+p,
+li {
+    letter-spacing: 0.2px;
+}
+
+.hint {
+    color: #bbb;
+    font-size: 13px;
+}
+
+/* ========================================
+   GRID
+======================================== */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+@media (max-width: 800px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav {
+        padding: 12px 16px;
+    }
+
+    .nav nav a {
+        display: inline-block;
+        margin: 3px 2px;
+    }
+
+    .hero h1 {
+        letter-spacing: 1px;
+    }
+}
+
+/* ========================================
+   SEARCH & INPUTS
+======================================== */
+.searchbar {
+    display: flex;
+    gap: 10px;
+    max-width: 760px;
+    margin: 16px auto 0;
+}
+
+input[type="text"],
+select,
+input[type="file"] {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    padding: 10px 12px;
+    background: #000;
+    color: #fff;
+    border: 3px solid #a0a0a0;
+    outline: none;
+    min-width: 0;
+}
+
+input[type="text"]:focus {
+    border-color: #fff;
+}
+
+select {
+    font-size: 13px;
+    flex: none;
+    max-width: 100%;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+.btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    padding: 10px 18px;
+    margin: 8px 6px 0 0;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    background: #6b6b6b;
+    border: 3px solid #000;
+    text-shadow: 2px 2px #222;
+    box-shadow:
+        inset -4px -4px #3c3c3c,
+        inset 4px 4px #a0a0a0;
+}
+
+.btn:hover {
+    background: #7d8bd1;
+}
+
+.btn.green {
+    background: var(--grass);
+    box-shadow:
+        inset -4px -4px var(--grass2),
+        inset 4px 4px #8fd16a;
+}
+
+.btn.red {
+    background: #a33;
+    box-shadow:
+        inset -4px -4px #6a1c1c,
+        inset 4px 4px #e07070;
+}
+
+/* ========================================
+   ALERTS & CHECKBOXES
+======================================== */
+.chk {
+    display: block;
+    margin: 10px 0;
+}
+
+.alert {
+    padding: 10px 14px;
+    border: 3px solid #000;
+    margin: 12px 0;
+    font-family: var(--font-body);
+}
+
+.alert.good {
+    background: #2d5a1b;
+}
+
+.alert.bad {
+    background: #6b2323;
+}
+
+/* ========================================
+   TABLE
+======================================== */
+table.kv {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+    font-family: var(--font-body);
+    font-size: 13px;
+}
+
+table.kv td,
+table.kv th {
+    border: 2px solid #333;
+    padding: 6px 8px;
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+table.kv td:first-child {
+    color: var(--gold);
+    white-space: nowrap;
+}
+
+/* ========================================
+   SEARCH RESULTS
+======================================== */
+.result {
+    display: flex;
+    gap: 16px;
+}
+
+.rank {
+    font-family: var(--font-title);
+    font-size: 22px;
+    color: var(--gold);
+    min-width: 55px;
+}
+
+.result .body {
+    flex: 1;
+    min-width: 0;
+}
+
+.bar {
+    height: 14px;
+    background: #000;
+    border: 2px solid #555;
+    margin: 6px 0;
+}
+
+.bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        var(--grass2),
+        var(--grass)
+    );
+}
+
+/* ========================================
+   DETAILS & CODE
+======================================== */
+details {
+    margin-top: 8px;
+}
+
+summary {
+    cursor: pointer;
+    color: #55ffff;
+}
+
+code {
+    background: #000;
+    padding: 1px 6px;
+    color: #7f7;
+}
+
+pre.ctx {
+    background: #000;
+    padding: 10px;
+    overflow: auto;
+    font-size: 12px;
+    font-family: var(--font-body);
+    color: #9f9;
+    margin: 8px 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   PAGINATION & FILTERS
+======================================== */
+.pager {
+    text-align: center;
+}
+
+.pager a {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 3px;
+    background: #444;
+    color: #fff;
+    text-decoration: none;
+    border: 3px solid #000;
+    font-family: var(--font-body);
+}
+
+.pager a.on {
+    background: var(--grass);
+}
+
+.filters {
+    display: inline-flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-right: 8px;
+}
+
+/* ========================================
+   LOGS
+======================================== */
+.logrow {
+    padding: 10px 16px;
+    border-left: 8px solid #666;
+}
+
+.loghead small {
+    display: block;
+    color: #999;
+    font-size: 11px;
+}
+
+.tag {
+    background: #000;
+    color: #fff;
+    padding: 1px 8px;
+    margin-right: 6px;
+    font-size: 12px;
+}
+
+.st-UPLOAD,
+.st-CSV {
+    border-left-color: #55f;
+}
+
+.st-PREPROCESS {
+    border-left-color: #fa0;
+}
+
+.st-DF,
+.st-IDF,
+.st-TFIDF {
+    border-left-color: #a5f;
+}
+
+.st-QUERY,
+.st-VSM,
+.st-RANK {
+    border-left-color: #5f5;
+}
+
+.st-ERROR {
+    border-left-color: #f33;
+}
+
+.st-DONE,
+.st-INDEX {
+    border-left-color: #0ff;
+}
+
+/* ========================================
+   FILE TABS
+======================================== */
+.filetabs a {
+    display: inline-block;
+    margin: 3px;
+    padding: 4px 10px;
+    background: #444;
+    color: #ddd;
+    text-decoration: none;
+    border: 2px solid #000;
+    font-size: 12px;
+}
+
+.filetabs a.on {
+    background: var(--grass);
+}
+
+/* ========================================
+   CODE VIEWER
+======================================== */
+.codebox {
+    padding: 0;
+    overflow: auto;
+    background: #0d0d0d;
+}
+
+table.code {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 12px;
+}
+
+table.code pre {
+    margin: 0;
+    font-family: var(--font-body);
+    white-space: pre;
+}
+
+td.ln {
+    color: #666;
+    text-align: right;
+    padding: 0 10px;
+    user-select: none;
+    border-right: 2px solid #333;
+    width: 1%;
+}
+
+table.code tr.hl {
+    background: #4a3b00;
+}
+
+.c { color: #6a9955; }
+.s { color: #ce9178; }
+.v { color: #9cdcfe; }
+.k { color: #c586c0; }
+.n { color: #b5cea8; }
+.h { color: #888; }
+
+/* ========================================
+   FOOTER
+======================================== */
+footer {
+    text-align: center;
+    color: #aaa;
+    padding: 20px;
+    font-size: 11px;
+    text-shadow: 1px 1px #000;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+@media (max-width: 520px) {
+    .searchbar {
+        flex-direction: column;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+
+    .result {
+        gap: 10px;
+    }
+
+    .rank {
+        min-width: 38px;
+        font-size: 16px;
+    }
+
+    table.kv td:first-child {
+        white-space: normal;
+    }
+}
